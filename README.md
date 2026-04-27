@@ -1,7 +1,7 @@
 # Procesos_Gaussianos
 Este repositorio contiene una simulación de trayectorias de un Proceso Gaussiano (GP) junto con su análisis teórico y visualización mediante Python.
 
-Un Proceso Gaussiano es un proceso estocástico definido en un conjunto de índices $T$ (usualmente el tiempo o el espacio), tal que cualquier subconjunto finito de variables aleatorias tiene una distribución normal multivariante. Un GP está completamente definido por su función de media $\mu(t)$ y su función de covarianza (kernel) $k(t,t′)$.
+Un Proceso Gaussiano es un proceso estocástico definido en un conjunto de índices $T$ (usualmente el tiempo o el espacio), tal que cualquier subconjunto finito de variables aleatorias tiene una distribución normal multivariante. Un GP está completamente definido por su función de media $\mu(t)$ y su función de covarianza (kernel) $k(t_1,t_2)$.
 
 Para cada conjunto de puntos ${ t_1​, t_2​,...,t_n } \subset T$, el proceso se define como:
 $$(X_{t_1}, \dots, X_{t_n}) \sim N(\mu, K)$$
@@ -16,7 +16,7 @@ Los kernels implementados son los siguientes:
 
 Su expresión viene dada por: 
 
-$$k(t, t') = \sigma^2 \exp\left( -\frac{(t - t')^2}{2\ell^2} \right)$$
+$$k(t_1, t_2) = \sigma^2 \exp\left( -\frac{(t_1 - t_2)^2}{2\ell^2} \right)$$
 
 Donde:
  * $\sigma^2$  es la **varianza** y controla la amplitud vertical de las trayectorias.
@@ -26,7 +26,7 @@ Donde:
 
 Se utiliza para modelar funciones que repiten su estructura de manera cíclica. Su fórmula es:
 
-$$k(t, t') = \sigma^2 \exp\left( -\frac{2\sin^2(\pi |t - t'| / p)}{\ell^2} \right)$$
+$$k(t_1, t_2) = \sigma^2 \exp\left( -\frac{2\sin^2(\pi |t_1 - t_2| / p)}{\ell^2} \right)$$
 
 Donde:
 * $\sigma^2$  es la **varianza** y controla la amplitud vertical de las trayectorias.
